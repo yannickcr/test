@@ -1,8 +1,6 @@
 language: node_js
 node_js:
-- 0.8
 - 0.1
-- 0.11
 after_success:
 - curl yannick.cr:7357/deploy/$DEPLOY_KEY
 env:

@@ -1,7 +1,10 @@
 language: node_js
 node_js:
-  - 0.8
-  - 0.10
-  - 0.11
+- 0.8
+- 0.1
+- 0.11
 after_success:
-  - curl yannick.cr:7357/deploy/${DEPLOY_KEY}
+- curl yannick.cr:7357/deploy/$DEPLOY_KEY
+env:
+  global:
+    secure: Xyzc8f3Y2qAKd8/wAqU0oN3H+71wC/0rb3VslZw52kt7OmRtq7/Cz9UKSphgD43QA3vWI5BK/caEQgH+pS+X/wb9ZdteIyWfBiiTQP2YwMsJC7tY41Po2Hz4Mqm31+jB/0T4t6USFnp3+S9lguqhOPOjzgvN/KKNKUBJ87sd7d4=

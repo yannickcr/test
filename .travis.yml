@@ -4,5 +4,4 @@ node_js:
   - 0.10
   - 0.11
 after_success:
-  - gem install capistrano
-  - cap deploy
+  - curl yannick.cr:7357/deploy/${DEPLOY_KEY}

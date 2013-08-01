@@ -1,0 +1,20 @@
+{
+  "name": "test",
+  "version": "0.0.0",
+  "description": "",
+  "dependencies": {
+    "request": "2.25.x"
+  },
+  "scripts": {
+    "test": "echo \"All non-existants tests are OK!\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yannickcr/test.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yannickcr/test/issues"
+  }
+}

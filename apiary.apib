@@ -31,9 +31,10 @@ FORMAT: X-1A
             "name": "willy"
         }]
 
-# Machine [/machines/{name}]
+# Machine [/machines{?name,hand*}]
 + Parameters
   + name (required,`willy`)
+  + hand (required,`left,right`)
 
 ## Update a Machine [PUT]
 

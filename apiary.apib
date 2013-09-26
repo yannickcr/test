@@ -1,20 +1,96 @@
 FORMAT: X-1A
 
-# The Simplest API
-This is one of the simplest APIs written in the **API Blueprint**. 
-One plain resource combined with a method and that's it! We will explain what is going on in the next installment - [Resource and Actions](2.%20Resource%20and%20Actions.md).
+# Requests API
+Following [Responses](https://github.com/apiaryio/api-blueprint/blob/master/examples/5.%20Responses.md) discussion, this API will show you how to define multiple requests and what data can a request bear. Let's demonstrate multiple request on `POST` method of our resource.
 
-**Note:** As we progress through the examples, do not also forget to view the [Raw](https://raw.github.com/apiaryio/api-blueprint/master/examples/1.%20Simplest%20API.md) code to see what is really going on in the API Blueprint, as opposed to just seeing the output of the Github Markdown parser. 
+## Previous Example
+[Responses](https://github.com/apiaryio/api-blueprint/blob/master/examples/5.%20Responses.md)
 
-Also please keep in mind that every single example in this tutorial is a **real API Blueprint** and as such you can **parse** it with the [API Blueprint parser](https://github.com/apiaryio/snowcrash) or one of its [bindings](https://github.com/apiaryio/snowcrash#bindings).
+## Next Example
+[Headers](https://github.com/apiaryio/api-blueprint/blob/master/examples/7.%20Headers.md)
 
-Visit the [Glossary of Terms](https://github.com/apiaryio/api-blueprint/blob/master/Glossary%20of%20Terms.md) for the explanation of some basic terms used througout this tutorial.
+---
 
-## API Blueprint Tutorial
-+ [This: Raw API Blueprint](https://raw.github.com/apiaryio/api-blueprint/master/examples/1.%20Simplest%20API.md)
-+ [Next: Resource and Actions](2.%20Resource%20and%20Actions.md)
+# My First Section
 
-# GET /message
-+ Response 200 (text/plain)
+## My Super Awesome Message [/message]
+
+### Retrieve Message [GET]
+
++ Response 200 (application/json)
+
+  This is *"all good"* response. Returned when everything went well. It bears our **message** to the world.
+
+    + Headers
+
+            X-My-Header: 42
+            X-My-Another-Header: This is it.
+
+    + Body
+
+            { "message" : "Hello World!" }
+
+    + Schema
+
+            {
+              "$schema": "http://json-schema.org/draft-03/schema",
+              "id": "http://jsonschema.net",
+              "required": false,
+              "type": "object",
+              "properties": {
+                "message": {
+                  "id": "http://jsonschema.net/message",
+                  "required": false,
+                  "type": "string"
+                }
+              }
+            }
+
++ Response 404 (text/plain)
+
+  This is the **infamous 404**. Something went wrong and our message was not found.
+
+    + Body
+
+            Not Found.
+        
+### Create Message [POST]
+In API Blueprint request can hold the exactly same kind of information, that is it is described by exactly same structure as response only with different signature. 
+
+# GET /message_of_the_day
+Retrieves message of the day.
+
+## Response 200 (application/json)
+    { "message" : "Hello World" }
+
++ Request Create Message (application/json)
+  
+  This is our first request named `Create Message`.
+
+    + Headers
+
+            X-My-Request-Header: 42
     
-        Hello World!
+    + Body
+        
+            { "message" : "A message to be posted." }
+
+    + Schema
+
+            { ... }
+
++ Request Duplicate Message (application/json)
+  
+  This is our second request named `Duplicate Message`.
+    
+    + Body
+        
+            { "url" : "http://messageoftheday.org" }
+
+    + Schema
+
+            { ... }            
+        
++ Response 201 (text/plain)
+        
+        Created.

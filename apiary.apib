@@ -1,13 +1,49 @@
 FORMAT: X-1A
 
-# Hello
+# Machines API
 
-## GET /message_of_the_day{/date}
-Retrieves message of the day. If no @date is specified a message for the current day is returned.
+# Group Machines
 
-### Parameters
-@date = "2013-02-17" (string) ... ISO 8601 date to retrieve message of the day for. 
+# Machines collection [/machines]
 
-### Response 200 (application/json)
-@.message (string) ... Extraordinaire message of the day.
-    { "message" : "Hello World" }
+## Create a Machine [POST]
++ Request (application/json)
+
+        {
+          "type": "bulldozer",
+          "name": "willy"
+        }
+
++ Response 202 (application/json)
+
+        {
+          "message": "Accepted"
+        }
+
+## Retreive all Machines [GET]
+
++ Response 200 (application/json)
+
+        [{
+            "_id": "52341870ed55224b15ff07ef",
+            "type": "bulldozer",
+            "name": "willy"
+        }]
+
+# Machine [/machines/{name}]
++ Parameters
+  + name (required,`willy`)
+
+
+## Retrieve a Machine [GET]
++ Response 200 (application/json)
+
+        {
+          "type": "bulldozer",
+          "name": "willy",
+          "_id": "5229c6e8e4b0bd7dbb07e29c"
+        }
+
+## Delete Message [DELETE]
+
++ Response 204

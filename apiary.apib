@@ -1,9 +1,36 @@
 FORMAT: X-1A
 
 # Machines API 
+
 # Group Machines
 
-# Machine [/machines/{name]
+# Machines collection [/machines]
+
+## Create a Machine [POST]
++ Request (application/json)
+
+        {
+          "type": "bulldozer",
+          "name": "willy"
+        }
+
++ Response 202 (application/json)
+
+        {
+          "message": "Accepted"    
+        }
+
+
+## Retreive all Machines [GET]
+
++ Response 200 (application/json)
+        [{
+            "_id": "52341870ed55224b15ff07ef",
+            "type": "bulldozer",
+            "name": "willy"
+        }]
+
+# Machine [/machines/{name}]
 + Parameters
   + name (required,`willy`)
 

@@ -1,85 +1,25 @@
 FORMAT: X-1A
 
-# Jobs API
+# Middle-End
 Welcome to the our Jobs API documentation.
 
-# Group Job Offer
+# Group Admin
 
 The following is a section of resources related to the job offers
 
-## Job offer [/job/{webid}|{graphid}]
-Get Job Offer informations using either a GraphID or a webID
+## Version [/admin/version]
+Get informations about the middle-end
 
-### [GET]
-
-+ Parameters
-
-  + id (required, graphid, `0023ac3vf970lf7p`) ... Id of a job.
+### Get middle-end version [GET]
 
 + Response 200 (application/json)
 
-        {
-            "type": "MOBILE JOB",
-            "updated_time" : "2013-09-24T10:23:38+0200
-        }
+    + Body
 
-+ Response 400 (application/json)
-
-        {
-        }
-        
-### [POST]
-
-+ Parameters
-
-  + id (required, graphid, `0023ac3vf970lf7p`) ... Id of a job.
-
-+ Request (application/json)
-
-        {
-            "message": "message of my application"
-        }
-
-+ Response 200 (application/json)
-
-        {
-            "type": "MOBILE JOB",
-            "updated_time" : "2013-09-24T10:23:38+0200
-        }
-
-+ Response 400 (application/json)
-
-        {
-        }
-
-## Apply to a job offer [/user/{webid}|{graphid}/apply/job/{webid}|{graphid}]
-Apply to a job offer
-
-### Apply to a job offer [POST]
-
-+ Request (application/json)
-
-        {
-            "message": "message of my application"
-        }
-
-+ Response 201 (application/json)
-
-        {
-            "status": "created"
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            {
+                "type": "MOBILE APPLICATION VERSION",
+                "updated_time": "2013-09-26T18:05:09+02:00",
+                "data": {
+                    "version": "Viadeo MiddleEnd v0.0.1"
+                }
+            }

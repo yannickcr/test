@@ -1,49 +1,58 @@
 FORMAT: X-1A
 
-# Machines API
+# Jobs API v1.0
 
-# Group Machines
+Welcome to the our Jobs API documentation.
 
-# Machines collections [/machines]
+## Job Offer Resources
 
-## Create a Machine [POST]
-+ Request (application/json)
+The following is a section of resources related to the job offers
 
-        {
-          "type": "bulldozer",
-          "name": "willy"
-        }
+## Job offer [/job/{webid}|{graphid}]
+Get Job Offer informations using either a GraphID or a webID
 
-+ Response 202 (application/json)
+### Get a Job offer [GET]
 
-        {
-          "message": "Accepted"
-        }
-
-## Retreive all Machines [GET]
-
-+ Response 200 (application/json)
-
-        [{
-            "_id": "52341870ed55224b15ff07ef",
-            "type": "bulldozer",
-            "name": "willy"
-        }]
-
-# Machine [/machines/{name}]
 + Parameters
-  + name (required,`willy`)
 
+  + id (required, graphid, `0023ac3vf970lf7p`) ... Id of a job.
 
-## Retrieve a Machine [GET]
 + Response 200 (application/json)
 
         {
-          "type": "bulldozer",
-          "name": "willy",
-          "_id": "5229c6e8e4b0bd7dbb07e29c"
+            "type": "MOBILE JOB",
+            "updated_time" : "2013-09-24T10:23:38+0200
         }
 
-## Delete Message [DELETE]
++ Response 400 (application/json)
 
-+ Response 204
+## Apply to a job offer [/user/{webid}|{graphid}/apply/job/{webid}|{graphid}]
+Apply to a job offer
+
+### Apply to a job offer [POST]
+
++ Request (application/json)
+        {
+            "message": "message of my application"
+        }
+
++ Response 201 (application/json)
+
+        {
+            "status": "created"
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

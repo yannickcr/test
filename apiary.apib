@@ -27,6 +27,30 @@ Get Job Offer informations using either a GraphID or a webID
 
         {
         }
+        
+### [POST]
+
++ Parameters
+
+  + id (required, graphid, `0023ac3vf970lf7p`) ... Id of a job.
+
++ Request (application/json)
+
+        {
+            "message": "message of my application"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "type": "MOBILE JOB",
+            "updated_time" : "2013-09-24T10:23:38+0200
+        }
+
++ Response 400 (application/json)
+
+        {
+        }
 
 ## Apply to a job offer [/user/{webid}|{graphid}/apply/job/{webid}|{graphid}]
 Apply to a job offer
